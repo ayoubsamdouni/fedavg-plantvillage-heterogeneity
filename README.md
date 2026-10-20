@@ -55,7 +55,7 @@ analysis/
   run_statistics.py  round-level results, Welch / paired t-tests, two-way ANOVA
   per_class.py       accuracy, macro-F1, bootstrap CIs, per-class F1, collapsed classes
   mcnemar.py         exact McNemar tests with Holm correction
-  make_figures.py    Figures 4-6
+  make_figures.py    Figures 1-3
 results/
   logs/           per-round logs of the 13 runs
   predictions/    predicted class of each of the 8,146 test images for the 13 final models,
@@ -71,10 +71,10 @@ figures/          figures written by make_figures.py
 ```bash
 pip install -r requirements.txt
 cd analysis
-python run_statistics.py   # Sections 5.1-5.3, Tables 4-5      -> results/summary/final_runs.csv, penalties.json
-python per_class.py        # Section 5.4, Tables 5-7           -> results/summary/perclass.json
+python run_statistics.py   # Sections 5.1-5.3, Table 2, Table S3 -> results/summary/final_runs.csv, penalties.json
+python per_class.py        # Section 5.4, Table 2, Table S4    -> results/summary/perclass.json
 python mcnemar.py          # McNemar tests, Holm correction    -> results/summary/mcnemar.csv
-python make_figures.py     # Figures 4-6                       -> figures/
+python make_figures.py     # Figures 1-3                       -> figures/
 ```
 
 Among other things, `run_statistics.py` prints the following:
