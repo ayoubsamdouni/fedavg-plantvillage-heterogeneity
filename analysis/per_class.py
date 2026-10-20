@@ -1,4 +1,4 @@
-"""Per-class results of the 13 final models (Section 5.4, Tables 5-7 of the paper).
+"""Per-class results of the 13 final models (Section 5.4, Table 2 and Supplementary Table S4 of the paper).
 
 Reads the saved test-set predictions (results/predictions) and writes
 results/summary/perclass.json with, for every run: accuracy, macro-F1,

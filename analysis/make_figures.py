@@ -1,4 +1,4 @@
-"""Figures 4-6 of the paper, drawn from the per-round logs in results/logs (written to figures/)."""
+"""Figures 1-3 of the paper, drawn from the per-round logs in results/logs (written to figures/)."""
 import pandas as pd, numpy as np, matplotlib
 matplotlib.use('Agg'); import matplotlib.pyplot as plt
 
@@ -14,7 +14,7 @@ E={'S1':3,'S2':3,'S3':3,'S4':1,'S5':1}
 L={'S1':'S1  IID, E=3','S2':'S2  α=0.5, E=3','S3':'S3  α=0.1, E=3','S4':'S4  α=0.1, E=1','S5':'S5  α=0.5, E=1'}
 acc=lambda f: pd.read_csv(f).set_index('round').accuracy*100
 
-# ---- Figure 4: replicate curves, one panel per scenario
+# ---- Figure 1: replicate curves, one panel per scenario
 fig,axs=plt.subplots(1,4,figsize=(7.4,2.6),dpi=300,sharey=True)
 s1=acc(runs['S1'][0])
 for ax,k in zip(axs,['S2','S3','S4','S5']):
@@ -30,7 +30,7 @@ from matplotlib.lines import Line2D
 h=[Line2D([],[],color='#9a998f',lw=1.0,ls=(0,(3,2)))]+[Line2D([],[],color='#55544f',lw=1.3,alpha=a) for a in (1,0.7,0.45)]
 fig.legend(h,['S1 (IID, reference)','seed 42','seed 43','seed 44'],loc='upper center',ncol=4,frameon=False,fontsize=7.5,bbox_to_anchor=(0.5,0.99))
 fig.tight_layout(rect=(0,0,1,0.9)); fig.savefig(OUT+'fig4_replicates.png'); plt.close(fig)
-# ---- Figure 5: accuracy vs cumulative local epochs (13 runs)
+# ---- Figure 2: accuracy vs cumulative local epochs (13 runs)
 fig,ax=plt.subplots(figsize=(7.2,4.2),dpi=300)
 ax.axvspan(0,6,color='#e9e8e3',lw=0,zorder=0)
 ax.annotate('BN warm-up: accuracy stays near chance for the\nfirst 6 local epochs (7 in one run), in all 13 runs',xy=(5.5,12),xytext=(34,30),fontsize=7.5,color='#55544f',arrowprops=dict(arrowstyle='-',color='#9a998f',lw=0.7))
@@ -45,7 +45,7 @@ ax.set_xlim(0,92); ax.set_ylim(0,100); ax.set_xlabel('Cumulative local epochs pe
 ax.set_ylabel('Global test accuracy (%)'); ax.grid(axis='y',color='#e3e2dc',lw=0.6); ax.set_axisbelow(True)
 ax.legend(frameon=False,loc='lower right',fontsize=7.5,handlelength=2.6)
 fig.tight_layout(); fig.savefig(OUT+'fig5_accuracy_vs_local_epochs.png'); plt.close(fig)
-# ---- Figure 6: E=1 cost under two budgets, 3 matched seeds
+# ---- Figure 3: E=1 cost under two budgets, 3 matched seeds
 g=lambda f,r: acc(f)[r]
 pts={}
 for b,(r3,r1) in {'comm':(30,30),'comp':(10,30)}.items():

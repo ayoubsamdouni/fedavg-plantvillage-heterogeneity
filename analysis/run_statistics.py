@@ -1,4 +1,4 @@
-"""Round-level statistics of the 13 runs (Sections 5.1-5.3 and Tables 4-5 of the paper).
+"""Round-level statistics of the 13 runs (Sections 5.1-5.3, Table 2 and Supplementary Table S3 of the paper).
 
 Reads results/logs/*.csv and writes:
   results/summary/final_runs.csv   one row per run
